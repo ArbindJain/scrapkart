@@ -56,11 +56,11 @@ Route::group(['before' => 'auth|standardUser'], function()
 		Route::get('/product', 'ProductsController@create');
 		Route::post('/product', ['as' => 'products.store', 'uses' => 'ProductsController@store']);
 		Route::get('/list','ProductsController@display');
-		
+
 });
 
-		Route::get('/search','SearchController@create');
-		Route::post('/search','SearchController@search');
+		Route::get('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
+		Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
 		Route::get('/image','ImageController@imageinsert');
 //		Route::post('/image',['as' => 'images.store', 'uses' => 'ImageController@imagestore']);
 //		Route::get('/imaged','ImageController@imageview');
@@ -86,8 +86,8 @@ Route::group(['before' => 'auth|standardUser'], function()
 			    else {
 			    	return 'failed';
 			    }
-				
+
 		});
 
-			
+
 
