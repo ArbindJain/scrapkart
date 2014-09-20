@@ -39,11 +39,11 @@ class ProductsController extends \BaseController {
 					$product->images = 'images/default.jpg';
 				}
 
-		    
+
 						$product->save();
 
 						return Redirect::to('/list')->with('flash_notice','Product added successfully');
-					
+
 			}
 
 
@@ -53,13 +53,18 @@ class ProductsController extends \BaseController {
 		$products = Product::orderBy('p_id','desc')->paginate(3);
 		$users = User::all();
 		$users = User::orderBy('id','desc')->paginate(3);
+		$suppliers = Product::lists('supplier');
+    $metals = Product::lists('metal');
+
 		return View::make('products.list')
 		->with('products',$products)
+		->with('suppliers',$suppliers)
+		->with('metals',$metals)
 		->with('users',$users);
 	}
 
 
-	
+
 
 
 }

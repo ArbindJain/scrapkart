@@ -9,7 +9,7 @@
            {{ Form::open(['route' => 'filter.search','class' =>'form-horizontal ']) }}
             <div class="form-group">
               <div class="col-md-3 ">
-                {{ Form::select('metal', array('steel' => 'Steel'), ['class' => 'form-control input-md'])}}
+                {{ Form::select('metal', $metals, ['class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-3 ">
                 {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-md'])}}
@@ -32,7 +32,7 @@
             </div>
             <div class="filter-body">
                 {{ Form::open(['route' => 'filter.search', 'class' => 'form-inline']) }}
-                    {{ Form::text('supplier', null, ['placeholder' => 'Supplier', 'class' => 'form-control input-sm'])}}
+                {{ Form::select('supplier', ['' => 'All Suppliers'] + $suppliers, ['class' => 'form-control input-md'])}}
                     {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('grade_a', null, ['placeholder' => 'Grade A', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('grade_b', null, ['placeholder' => 'Grade B', 'class' => 'form-control input-sm'])}}
