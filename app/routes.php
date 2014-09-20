@@ -86,11 +86,17 @@ Route::group(['before' => 'auth|standardUser'], function()
 			    else {
 			    	return 'failed';
 			    }
-				
+
 		});
+<<<<<<< HEAD
 Route::put('theme',function(){
 			return View::make('homepage');
 		});
 			
 Route::get('/success','MailController@interested');
 		
+=======
+
+
+
+>>>>>>> 143bceabd9f5ae8e4df30b4f6613c6bded5f0b50

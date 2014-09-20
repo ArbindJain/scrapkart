@@ -126,7 +126,6 @@ return array(
 		'Laracasts\Validation\ValidationServiceProvider',
 		'basicAuth\Repo\BackendServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Zofe\Rapyd\RapydServiceProvider',
 
 	),
 
