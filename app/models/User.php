@@ -6,12 +6,12 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Cartalyst\Sentry\Users\Eloquent\User implements UserInterface, RemindableInterface {
 
 	public static $rules = [
-			
+
 			'images' => 'required|image|mimes:jpeg,jpg,png,gif,bmp'
 
-			
 
-		]; 
+
+		];
 	/**
 	 * The database table used by the model.
 	 *
@@ -97,6 +97,11 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements UserInterface
         if (!Sentry::check()) return false;
 
         return Sentry::getUser()->id == $this->id;
+    }
+
+    public function products()
+    {
+    	return $this->hasMany('Product');
     }
 
 

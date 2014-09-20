@@ -2,13 +2,8 @@
 
 class SearchController extends \BaseController {
 
-<<<<<<< HEAD
         public function create(){
         $filter = DataFilter::source(Search::with('author','categories'));
-=======
-	public function create(){
-	$filter = DataFilter::source(Search::with('author','categories'));
->>>>>>> 143bceabd9f5ae8e4df30b4f6613c6bded5f0b50
         $filter->add('title','Title', 'text');
         $filter->add('categories.name','Categories','tags');
         $filter->add('publication_date','publication date','daterange')->format('m/d/Y', 'en');
@@ -27,59 +22,75 @@ class SearchController extends \BaseController {
         $grid->edit('/rapyd-demo/edit', 'Edit','modify|delete');
 
         return  View::make('rapyd::demo.filtergrid', compact('filter', 'grid'));
-<<<<<<< HEAD
         }
         public function search(){
-               $query_shape = '%'.Input::get('shape').'%';
                $query_supplier = '%'.Input::get('supplier').'%';
-               $query_company = '%'.Input::get('company').'%';
-               $query_part_number = '%'.Input::get('part_number').'%';
-=======
-	}
-	public function search(){
+               $query_metal = '%'.Input::get('metal').'%';
+               $query_city = '%'.Input::get('city').'%';
+               $query_grade_a = '%'.Input::get('grade_a').'%';
+               $query_grade_b = '%'.Input::get('grade_b').'%';
                $query_shape = '%'.Input::get('shape').'%';
-               $query_supplier = '%'.Input::get('supplier').'%';
-               $query_grade = '%'.Input::get('grade').'%';
-               $query_company = '%'.Input::get('company').'%';
                $query_part_number = '%'.Input::get('part_number').'%';
-               $query_radius = '%'.Input::get('radius').'%';
-               $query_length = '%'.Input::get('length').'%';
-               $query_breadth = '%'.Input::get('breadth').'%';
->>>>>>> 143bceabd9f5ae8e4df30b4f6613c6bded5f0b50
-               $query_thickness = '%'.Input::get('thickness').'%';
-               $query_weight = '%'.Input::get('weight').'%';
-               $products = Product::where('shape', 'LIKE', $query_shape)
-                                        ->where('supplier', 'LIKE', $query_supplier)
-<<<<<<< HEAD
-                                        ->where('part_number', 'LIKE', $query_part_number)
-=======
-                                        ->where('grade', 'LIKE', $query_grade)
-// add company column                   ->where('company', 'LIKE', $query_company)
-                                        ->where('part_number', 'LIKE', $query_part_number)
-                                        ->where('radius', 'LIKE', $query_radius)
-                                        ->where('length', 'LIKE', $query_length)
-                                        ->where('breadth', 'LIKE', $query_breadth)
->>>>>>> 143bceabd9f5ae8e4df30b4f6613c6bded5f0b50
-                                        ->where('thickness', 'LIKE', $query_thickness)
-                                        ->where('weight', 'LIKE', $query_weight)
-                                        ->get();
 
-<<<<<<< HEAD
+               if(Input::has('thickness_from'))
+                 $query_thickness_from = Input::get('thickness_from');
+               else
+                $query_thickness_from = 0;
+
+               if(Input::has('thickness_to'))
+                 $query_thickness_to = Input::get('thickness_to');
+               else
+                $query_thickness_to = Product::max('thickness');
+
+              if(Input::has('weight_from'))
+                 $query_weight_from = Input::get('weight_from');
+               else
+                $query_weight_from = 0;
+
+               if(Input::has('weight_to'))
+                 $query_weight_to = Input::get('weight_to');
+               else
+                $query_weight_to = Product::max('weight');
+
+              if(Input::has('volume_from'))
+                 $query_volume_from = Input::get('volume_from');
+               else
+                $query_volume_from = 0;
+
+               if(Input::has('volume_to'))
+                 $query_volume_to = Input::get('volume_to');
+               else
+                $query_volume_to = Product::max('volume');
+
+              if(Input::has('date_from'))
+                 $query_date_from = date( 'Y-m-d H:i:s', strtotime(Input::get('date_from')));
+               else
+                $query_date_from = date( 'Y-m-d H:i:s', strtotime("1-1-1970"));
+
+               if(Input::has('date_to'))
+                 $query_date_to = date( 'Y-m-d H:i:s', strtotime(Input::get('date_to') . " 23:59"));
+               else
+                $query_date_to = date( 'Y-m-d H:i:s', strtotime("now"));
+
+               $products = Product::where('supplier', 'LIKE', $query_supplier)
+                                        ->where('metal', 'LIKE', $query_metal)
+                                        ->where('city', 'LIKE', $query_city)
+                                        ->where('grade_a', 'LIKE', $query_grade_a)
+                                        ->where('grade_b', 'LIKE', $query_grade_b)
+                                        ->whereBetween('thickness', array($query_thickness_from, $query_thickness_to))
+                                        ->where('shape', 'LIKE', $query_shape)
+                                        ->whereBetween('weight', array($query_weight_from, $query_weight_to))
+                                        ->whereBetween('created_at', array($query_date_from, $query_date_to))
+                                        ->whereBetween('volume', array($query_volume_from, $query_volume_to))
+                                        ->where('part_number', 'LIKE', $query_part_number)
+                                        ->paginate(5);
+
+
+
                 return View::make('products.list')
                         ->with('products',$products)
                         ->withInput(Input::flash());
-
         }
-=======
-        	return View::make('products.list')
-        		->with('products',$products)
-                        ->withInput(Input::flash());
-
-	}
->>>>>>> 143bceabd9f5ae8e4df30b4f6613c6bded5f0b50
-
-
-
 
 
 }

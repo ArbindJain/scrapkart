@@ -123,7 +123,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12 col-md-offset-3 subscribe">
 					<!-- <form class="form-horizontal" role="form" action="subscribe.php" id="subscribeForm" method="POST"> -->
-		    	{{ Form::open(['route' => 'masthead.search']) }}
+		    	{{ Form::open(['route' => 'filter.search']) }}
 						<div class="form-group">
 							<div class="col-md-3 col-sm-6 col-sm-offset-1 col-md-offset-0">
 								<input class="form-control input-lg" name="shape" id="address" placeholder="Shape " ><br>

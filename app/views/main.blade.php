@@ -12,21 +12,22 @@
     <link rel="stylesheet" href="http://necolas.github.io/normalize.css/3.0.1/normalize.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="../bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 
     <!-- Font Awesome CDN -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/lightbox.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet" />
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -103,12 +104,12 @@
 
                 <li class="list-unstyled"><span class="hidden-xs"> Welcome , <i class="fa fa-user"></i>  Guest</span>
                   <i class="fa fa-question-circle fa-2x hide visible-xs"></i></li>
-                
-               
+
+
                 @else
                  <li class="list-unstyled"><a href="#"><span class="hidden-xs"> Welcome , <i class="fa fa-user"></i> {{Sentry::getUser()->name}}</span>
                   <i class="fa fa-question-circle fa-2x hide visible-xs"></i></a></li>
-               
+
                 @endif
               </ul>
               </div>
@@ -117,13 +118,13 @@
               @if (!Sentry::check())
 
                   <li class="{{ set_active('login') }} list-unstyled pull-right"><a href="/login" class="right-head"><span class="hidden-xs"><i class="fa fa-sign-in"></i> Sign In</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
-                  
+
                   <li class="hidden-xs {{ set_active('register') }} list-unstyled pull-right right-head"> <a class="right-head pull-right" href="/register" ><i class="fa fa-plus"></i> Create Account </a> </li>
-                @else 
+                @else
                  <li class="{{ set_active('profiles') }} list-unstyled "><a class="right-head" href="/profiles/{{Sentry::getUser()->id}}" ><span class="hidden-xs"><i class="fa fa-bolt"></i> My Profile</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
-                  
+
                   <li class="hidden-xs list-unstyled"> <a class="right-head pull-right" href="/logout" ><i class="fa fa-sign-out"></i> Logout </a> </li>
-                
+
                 @endif
               </ul>
             </div>
@@ -151,7 +152,7 @@
                     <li class="{{ set_active('userProtected') }}"><a href="/list">Search</a></li>
                 </ul>
             </div>
-        </div>     
+        </div>
   </div><!-- navbar-default -->
       <div class="container">
           <div class="row">
@@ -161,7 +162,7 @@
       <section class="footer">
 
       </section>
-      
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
