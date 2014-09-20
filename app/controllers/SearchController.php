@@ -29,28 +29,8 @@ class SearchController extends \BaseController {
                $query_city = '%'.Input::get('city').'%';
                $query_grade_a = '%'.Input::get('grade_a').'%';
                $query_grade_b = '%'.Input::get('grade_b').'%';
+               $query_thickness = '%'.Input::get('thickness').'%';
                $query_shape = '%'.Input::get('shape').'%';
-               $query_part_number = '%'.Input::get('part_number').'%';
-
-               if(Input::has('thickness_from'))
-                 $query_thickness_from = Input::get('thickness_from');
-               else
-                $query_thickness_from = 0;
-
-               if(Input::has('thickness_to'))
-                 $query_thickness_to = Input::get('thickness_to');
-               else
-                $query_thickness_to = Product::max('thickness');
-
-              if(Input::has('weight_from'))
-                 $query_weight_from = Input::get('weight_from');
-               else
-                $query_weight_from = 0;
-
-               if(Input::has('weight_to'))
-                 $query_weight_to = Input::get('weight_to');
-               else
-                $query_weight_to = Product::max('weight');
 
               if(Input::has('volume_from'))
                  $query_volume_from = Input::get('volume_from');
@@ -77,12 +57,10 @@ class SearchController extends \BaseController {
                                         ->where('city', 'LIKE', $query_city)
                                         ->where('grade_a', 'LIKE', $query_grade_a)
                                         ->where('grade_b', 'LIKE', $query_grade_b)
-                                        ->whereBetween('thickness', array($query_thickness_from, $query_thickness_to))
+                                        ->where('thickness', 'LIKE', $query_thickness)
                                         ->where('shape', 'LIKE', $query_shape)
-                                        ->whereBetween('weight', array($query_weight_from, $query_weight_to))
                                         ->whereBetween('created_at', array($query_date_from, $query_date_to))
                                         ->whereBetween('volume', array($query_volume_from, $query_volume_to))
-                                        ->where('part_number', 'LIKE', $query_part_number)
                                         ->paginate(5);
 
 

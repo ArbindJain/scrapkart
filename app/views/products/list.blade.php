@@ -15,10 +15,7 @@
                 {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-2 ">
-                {{ Form::text('grade_a', null, ['placeholder' => 'Grade A', 'class' => 'form-control input-md'])}}
-              </div>
-              <div class="col-md-2 ">
-                {{ Form::text('grade_b', null, ['placeholder' => 'Grade B', 'class' => 'form-control input-md'])}}
+                {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-2 ">
                 <button type="submit" class="btn btn-success btn-lg ">SEARCH &nbsp;&nbsp;<i class="fa fa-search ser-icon"></i></button>
@@ -36,18 +33,15 @@
             <div class="filter-body">
                 {{ Form::open(['route' => 'filter.search', 'class' => 'form-inline']) }}
                     {{ Form::text('supplier', null, ['placeholder' => 'Supplier', 'class' => 'form-control input-sm'])}}
+                    {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('grade_a', null, ['placeholder' => 'Grade A', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('grade_b', null, ['placeholder' => 'Grade B', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('thickness_from', null, ['placeholder' => 'Thickness From', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('thickness_to', null, ['placeholder' => 'Thickness To', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('weight_from', null, ['placeholder' => 'Weight From', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('weight_to', null, ['placeholder' => 'Weight To', 'class' => 'form-control input-sm'])}}
+                    {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_from', null, ['placeholder' => 'Volume From', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_to', null, ['placeholder' => 'Volume To', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('date_from', null, ['placeholder' => 'Date From', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('date_to', null, ['placeholder' => 'Date To', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('shape', null, ['placeholder' => 'Shape', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('part_number', null, ['placeholder' => 'Part Number', 'class' => 'form-control input-sm'])}}
                     {{ Form::submit('Filter', ['class' => 'btn btn-md btn-info ']) }}
                 {{ Form::close() }}
 
