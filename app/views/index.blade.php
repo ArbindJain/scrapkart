@@ -39,8 +39,8 @@
         
         <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
             <div class="pull-left ">
-            <ul class="userMenu">
- @if (!Sentry::check())
+            <ul class="">
+ 			@if (!Sentry::check())
 
               <li><a href="#"><span class="hidden-xs"> Welcome , Guest</span>
                 <i class="fa fa-question-circle fa-2x hide visible-xs"></i></a></li>

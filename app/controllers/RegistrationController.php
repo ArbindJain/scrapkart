@@ -36,12 +36,13 @@ class RegistrationController extends \BaseController {
     /**      * Store a newly created resource in storage.      *      *
 @return Response      */     public function store()     
 {         
-	$input =Input::only('email', 'password', 'password_confirmation', 'first_name',
-'last_name', 'company_name', 'address','phone', 'website', 'pan', 'tin', 'tan','description','images');
+	$input =Input::only('name','email', 'password', 'password_confirmation', 'mobile',
+ 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','turnover','pan','terms','images');
 
 		$this->registrationForm->validate($input);
 
-		$input = Input::only('email', 'password', 'first_name', 'last_name', 'company_name', 'address','phone', 'website', 'pan', 'tin', 'tan','description');
+		$input = Input::only('name','email', 'password', 'mobile',
+ 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','turnover','pan','terms');
 		
 		
 		$input = array_add($input, 'activated', true);
@@ -53,7 +54,14 @@ class RegistrationController extends \BaseController {
 
     	// Assign the group to the user
     	$user->addGroup($usersGroup);
+    	$data =array(
+ 			'myNumber' => '09279088882'
+ 		);
+    	Mail::send('emails.registertemplate',$data, function ($message){
+    	$message->subject('Welcome To Scrapkart');
+    	$message->to('arbind.ilus@gmail.com'); // Recipient 
 
+});
 		return Redirect::to('login')->withFlashMessage('User Successfully Created!');
 	}
 

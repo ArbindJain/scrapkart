@@ -32,8 +32,6 @@ class MigrationCartalystSentryInstallUsers extends Migration {
 		Schema::create('users', function($table)
 		{
 			$table->increments('id');
-			$table->string('email');
-			$table->string('password');
 			$table->text('permissions')->nullable();
 			$table->boolean('activated')->default(0);
 			$table->string('activation_code')->nullable();
@@ -41,19 +39,21 @@ class MigrationCartalystSentryInstallUsers extends Migration {
 			$table->timestamp('last_login')->nullable();
 			$table->string('persist_code')->nullable();
 			$table->string('reset_password_code')->nullable();
-			$table->string('first_name')->nullable();
-			$table->string('last_name')->nullable();
+			$table->string('name')->nullable();
+			$table->string('email');
+			$table->string('password');
+			$table->integer('mobile');
+			$table->string('designation');
 			$table->string('company_name');
+			$table->string('country');
+			$table->string('city');
 			$table->string('address');
-			$table->string('phone');
-			$table->string('website');
+			$table->string('pin_code');
+			$table->integer('phone');
+			$table->string('business_type');
+			$table->integer('turnover');
 			$table->string('pan');
-			$table->string('tin');
-			$table->string('tan');
-			$table->string('description');
-
-
-
+			$table->integer('terms');
 			$table->timestamps();
 
 			// We'll need to ensure that MySQL uses the InnoDB engine to

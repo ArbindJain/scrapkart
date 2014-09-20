@@ -6,16 +6,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Product extends Eloquent implements UserInterface, RemindableInterface {
 	public static $rules = [
-			'part_number' => 'required',
-			'supplier'=> 'required',
-			'grade'=>'required',
-			'radius'=>'required',
-			'length'=>'required',
-			'breadth'=>'required',
-			'height'=>'required',
+			'grade_a'=>'required',
+			'grade_b'=>'required',
+			'shape'=> 'required',
 			'thickness'=>'required',
-			'weight'=>'required',
-			'images' => 'image|mimes:jpeg,jpg,png,gif,bmp'
+			'images' => 'required|image|mimes:jpeg,jpg,png,gif,bmp'
 
 			
 

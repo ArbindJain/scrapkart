@@ -5,6 +5,13 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Cartalyst\Sentry\Users\Eloquent\User implements UserInterface, RemindableInterface {
 
+	public static $rules = [
+			
+			'images' => 'required|image|mimes:jpeg,jpg,png,gif,bmp'
+
+			
+
+		]; 
 	/**
 	 * The database table used by the model.
 	 *
