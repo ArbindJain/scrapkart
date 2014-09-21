@@ -25,18 +25,10 @@
 							</div>-->
 							<div class="row">
 								<div class="form-group col-md-12 pull-left">
-								{{ Form::select('Metal', array('metal' => 'Metal - Steel '), ['class' => 'form-control'])}}
+								{{ Form::select('Metal', array('' => 'Select Metal','steel' => 'Steel','aluminum' => 'Aluminum','copper' => 'Copper','iron' => 'Iron','cobalt' => 'Cobalt','nickel' => 'Nickel'), ['class' => 'form-control'])}}
 								{{ errors_for('shape', $errors) }}
 								</div>
 							</div>
-							
-				    	  	<!-- Part number field -->
-				    	  	<div class="row">
-				    	  		<div class="form-group col-md-12 pull-left">
-								{{ Form::text('part_number', null, ['placeholder' => 'Part Number', 'class' => 'form-control input-lg', 'required' => 'required'])}}
-								{{ errors_for('part_number', $errors) }}
-							</div>
-				    	  	</div>
 							
 
 							
@@ -61,7 +53,7 @@
 								
 							<!-- Grade field -->
 							<div class=" col-md-6 margin-15" >
-								{{ Form::text('grade_b', null, ['placeholder' => 'Grade', 'class' => 'form-control input-lg input-llg', 'required' => 'required'])}}
+								{{ Form::text('grade_b', null, ['placeholder' => 'Grade', 'class' => 'form-control input-lg input-llg','required' => 'required'])}}
 								{{ errors_for('grade_b', $errors) }}
 								<span class="help-block">Ex: 530 </span>
 							</div>
@@ -69,7 +61,15 @@
 							<!-- shape -->
 							<div class="row">
 								<div class="form-group col-md-12 " id="shape">
-								{{ Form::select('shape', array('sqaure'=>'---  Select Shape  ---','circle'=>'Circle','square' => 'Square', 'rectangle' => 'Rectangle','triangle'=>'Triangle','trapezoid'=>'Trapezoid','others' =>'Others'), ['class' => 'form-control input-lg input-llg'])}}
+								<select class="input-llg" name="shape">
+									<option value=""> Select City </option>
+									<option value="circle">Circle</option>
+									<option value="square">Square</option>
+									<option value="rectangle">Rectangle</option>
+									<option value="triangle">Triangle</option>
+									<option value="trapezoid">Trapezoid</option>
+									<option value="others">Others</option>
+								</select>
 								{{ errors_for('shape', $errors) }}
 							</div>
 							</div>
@@ -119,14 +119,6 @@
 							</div>
 							</div>
 							
-							<!-- Weight -->
-							<div class="row">
-								<div class="form-group col-md-12">
-								{{ Form::text('weight', null, ['placeholder' => 'Weight', 'class' => 'form-control input-lg', 'required' => 'required'])}}
-								{{ errors_for('weight', $errors) }}
-								<span class="help-block"> In Grams(gm)</span>
-							</div>
-							</div>
 							
 							<!-- Volume -->
 							<div class="row">
@@ -148,8 +140,8 @@
 							
 							<!-- image -->
 							<div class="row">
-								<div class="form-group col-md-12">
-									{{Form::file('images',['class' => 'form-control btn btn-default input-llg'])}}
+								<div class="form-group col-md-12 input-llg">
+									{{Form::file('images',['class' => 'form-control btn  input-llg'])}}
 									{{ errors_for('images', $errors) }}
 								</div>
 							</div>

@@ -1,14 +1,16 @@
-@extends('master')
+@extends('main')
 
 @section('title', 'View Profile')
 
 @section('content')
 
-	<h1>{{ $user->first_name }}'s Profile</h1>
+	<h1>{{ $user->name }}'s Profile</h1>
 	<ul>
-		<li>Email Address: {{ $user->email }}</li>
-		<li>First Name: {{ $user->first_name }}</li>
-		<li>Last Name: {{ $user->last_name }}</li>
+		<li>Name: {{ $user->name }}</li>
+		<li>Email: {{ $user->email }}</li>
+		<li>Last Name: {{ $user->turnover }}</li>
+		<li>Mobile: {{ $user->mobile }}</li>
+		<li>Designation: {{ $user->designation }}</li>
 	</ul>
 
 	@if(Sentry::check())

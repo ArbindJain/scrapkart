@@ -45,9 +45,13 @@ border-bottom: 5px solid #D4D4D4;
 	font-size: lato;
 	font-weight: 300;
 }
-.input-lg , select{
+.input-lg {
 	border-radius:0px;
 	border-left-color: #ddd;
+	border-left-width: 5px;
+	}
+ select{
+	border-radius:0px;
 	border-left-width: 5px;
 	}
 .input-llg{

@@ -9,12 +9,12 @@ class ProductsController extends \BaseController {
 	{
 		if (Sentry::check())
 			$ued = Sentry::getUser()->id;
+			$city = Sentry::getuser()->city;
 			{
 						$product = new Product();
 
 			$product->user_id = $ued;
 			$product->metal = 'steel';
-			$product->part_number = Input::get('part_number');
 			$product->supplier = Input::get('supplier');
 			$product->grade_a = Input::get('grade_a');
 			$product->grade_b = Input::get('grade_b');
@@ -23,10 +23,10 @@ class ProductsController extends \BaseController {
 			$product->size_b = Input::get('size_b');
 			$product->size_c = Input::get('size_c');
 			$product->thickness = Input::get('thickness');
-			$product->weight = Input::get('weight');
 			$product->volume = Input::get('volume');
 			$product->bynumber = Input::get('bynumber');
 			$product->perday = Input::get('perday');
+			$product->city = $city;
 
 			if($image = Input::file('images')){
 					$filename = date('Y-m-d-H:i:s')."-".rand(1,100);

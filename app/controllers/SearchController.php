@@ -72,6 +72,7 @@ class SearchController extends \BaseController {
                         ->with('suppliers',$suppliers)
                         ->with('metals',$metals)
                         ->withInput(Input::flash());
+
         }
 
 
