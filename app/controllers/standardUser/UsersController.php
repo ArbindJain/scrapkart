@@ -38,9 +38,14 @@ class UsersController extends \BaseController {
 		// $user = User::findOrFail($id);
 		$user = $this->user->find($id);
 
-		return View::make('protected.standardUser.show')->withUser($user);
+		$products = $user->products;
+
+		return View::make('protected.standardUser.show')
+			->withUser($user)
+			->with('products',$products);
 
 	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
