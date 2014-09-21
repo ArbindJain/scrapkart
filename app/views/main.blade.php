@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="http://necolas.github.io/normalize.css/3.0.1/normalize.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    {{HTML::style('css/bootstrap.min.css')}}
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    {{HTML::style('css/bootstrap-theme.min.css')}}
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    {{HTML::script('js/jquery.js')}}
+    {{HTML::script('js/bootstrap.min.js')}}
+
 
 
     <!-- Font Awesome CDN -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/lightbox.css" rel="stylesheet" />
+    {{HTML::style('css/style.css')}}
+    {{HTML::style('css/lightbox.css')}}
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
