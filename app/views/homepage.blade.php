@@ -96,23 +96,20 @@
   </div><!-- navbar-default -->
   <section class="third-row">
     <div class="container">
-        <div class="col-md-12">
-           {{ Form::open(['route' => 'products.store','files'=>'true','class' =>'form-horizontal ']) }}
+        <div class="col-md-12 col-md-offset-1">
+           {{ Form::open(['route' => 'filter.search','class' =>'form-horizontal ']) }}
             <div class="form-group">
               <div class="col-md-3 ">
-                {{ Form::select('Metal', array('metal' => 'Metal - Steel '), ['class' => 'form-control input-md'])}}                  
+                {{ Form::select('metal', $metals, ['class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-3 ">
                 {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-md'])}}
               </div>
-              <div class="col-md-2 ">
-                {{ Form::text('grade_a', null, ['placeholder' => 'Grade', 'class' => 'form-control input-md'])}}
+              <div class="col-md-3 ">
+                {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-2 ">
-                {{ Form::text('grade_b', null, ['placeholder' => 'Grade', 'class' => 'form-control input-md'])}}
-              </div>
-              <div class="col-md-2 ">
-                <button type="button" class="btn btn-success btn-lg ">Search &nbsp;&nbsp;<i class="fa fa-search ser-icon"></i></button>
+                <button type="submit" class="btn btn-success btn-lg ">SEARCH &nbsp;&nbsp;<i class="fa fa-search ser-icon"></i></button>
               </div>
             </div>
           {{ Form::close() }}

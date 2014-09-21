@@ -34,13 +34,13 @@
 							<div class="row">
 							<!-- Password field -->
 							<div class="form-group col-md-6 pull-left">
-								{{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control input-lg', 'required' => 'required'])}}
+								{{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control input-lg input-llg', 'required' => 'required'])}}
 								{{ errors_for('password', $errors) }}
 							</div>
 
 							<!-- Password Confirmation field -->
 							<div class="form-group col-md-6 pull-right">
-								{{ Form::password('password_confirmation', ['placeholder' => 'Confirm Password ', 'class' => 'form-control input-lg', 'required' => 'required'])}}
+								{{ Form::password('password_confirmation', ['placeholder' => 'Confirm Password ', 'class' => 'form-control input-lg input-llg', 'required' => 'required'])}}
 								{{ errors_for('password_confirmation', $errors) }}
 							</div>
 
@@ -54,7 +54,7 @@
 							
 							<!-- Designation  -->
 							<div class="form-group col-md-6 pull-right ">
-								{{ Form::text('designation', null, ['placeholder' => 'Designation', 'class' => 'form-control input-lg input-llg', 'required' => 'required'])}}
+								{{ Form::text('designation', null, ['placeholder' => 'Designation', 'class' => 'form-control input-lg'])}}
 								{{ errors_for('designation', $errors) }}
 							</div>
 							</div>
@@ -72,7 +72,10 @@
 							<div class="row">
 							<!-- Country -->
 							<div class="form-group col-md-6 pull-left">
-								{{ Form::select('country', array('' => 'Select Country ','india' => 'India'), ['class' => 'form-control input-llg'])}}
+								<select class="input-llg" name="country">
+									<option value=""> Select Country </option>
+									<option value="india">India</option>
+								</select>
 								{{ errors_for('country', $errors) }}
 							</div>
 							<!-- City -->
@@ -157,7 +160,7 @@
 							<div class="form-group col-md-6 pull-left">
 								{{ Form::text('turnover', null, ['placeholder' => 'Turnover', 'class' => 'form-control input-lg'])}}
 								{{ errors_for('turnover', $errors) }}
-								<span class="help-block"> In <i class="fa fa-inr"></i> lakhs or crores </span>
+								<span class="help-block"> In <i class="fa fa-inr"></i> lakhs or crores Ex: XXX Lakhs or XXX Crores </span>
 							</div>
 							<!-- pan -->
 							<div class="form-group col-md-6 pull-right">

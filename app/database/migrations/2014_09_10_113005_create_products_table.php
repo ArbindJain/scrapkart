@@ -18,9 +18,7 @@ class CreateProductsTable extends Migration {
 			$table->increments('p_id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->string('city');
 			$table->string('metal');
-			$table->string('part_number');
 			$table->string('supplier');
 			$table->string('grade_a');
 			$table->string('grade_b');
@@ -29,11 +27,11 @@ class CreateProductsTable extends Migration {
 			$table->integer('size_b')->nullable();
 			$table->integer('size_c')->nullable();
 			$table->integer('thickness');
-			$table->integer('weight');
 			$table->integer('volume');
 			$table->string('bynumber');
 			$table->string('perday');
 			$table->string('images');
+			$table->string('city');
 			$table->timestamps();
 		});
 	}
