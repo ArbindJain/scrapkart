@@ -9,7 +9,7 @@
            {{ Form::open(['route' => 'filter.search','class' =>'form-horizontal ']) }}
             <div class="form-group">
               <div class="col-md-3 ">
-                {{ Form::select('metal', $metals, ['class' => 'form-control input-md'])}}
+                {{ Form::select('metal', ['' => 'All Metals'] + $metals, ['class' => 'form-control input-md'])}}
               </div>
               <div class="col-md-3 ">
                 {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-md'])}}

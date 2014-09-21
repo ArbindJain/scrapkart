@@ -63,9 +63,8 @@ class SearchController extends \BaseController {
                                         ->whereBetween('volume', array($query_volume_from, $query_volume_to))
                                         ->paginate(5);
 
-                $suppliers = Product::lists('supplier');
-                $metals = Product::lists('metal');
-
+                $suppliers = Product::lists('supplier', 'supplier');
+                $metals = Product::lists('metal', 'metal');
 
                 return View::make('products.list')
                         ->with('products',$products)
