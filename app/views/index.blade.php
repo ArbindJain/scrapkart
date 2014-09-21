@@ -133,7 +133,7 @@
 								<input class="form-control input-lg" name="supplier" id="address" placeholder="Supplier " ><br>
 							</div>
 							<div class="col-md-3 col-sm-6 col-sm-offset-1 col-md-offset-0">
-								<input class="form-control input-lg" name="grade" id="address" placeholder="Grade " ><br>
+								<input class="form-control input-lg" name="grade_a" id="address" placeholder="Grade " ><br>
 							</div>
 							<div class="col-md-3 col-sm-4">
 								<button type="submit" class="btn btn-success btn-lg">SEARCH SCRAP ></button>
