@@ -44,6 +44,7 @@ class UsersController extends \BaseController {
 			->withUser($user)
 			->with('products',$products);
 
+
 	}
 
 
@@ -72,10 +73,9 @@ class UsersController extends \BaseController {
 
 		// $user = User::findOrFail($id);
 		$user = $this->user->find($id);
-
 		if (! Input::has("password"))
 		{
-			$input = Input::only('email', 'first_name', 'last_name' ,'company_name', 'phone');
+			$input = Input::only('name', 'designation' ,'mobile');
 
 			$this->usersEditForm->excludeUserId($user->id)->validate($input);
 
@@ -86,7 +86,7 @@ class UsersController extends \BaseController {
 
 		else
 		{
-			$input = Input::only('email', 'first_name', 'last_name', 'password', 'password_confirmation' ,'company_name');
+			$input = Input::only('name', 'password', 'password_confirmation' ,'designation','mobile');
 
 			$this->usersEditForm->excludeUserId($user->id)->validate($input);
 
@@ -99,6 +99,13 @@ class UsersController extends \BaseController {
 			return Redirect::route('profiles.edit', $user->id)->withFlashMessage('User (and password) has been updated successfully!');
 		}
 	}
+
+
+			
+		
+	
+
+
 
 
 
