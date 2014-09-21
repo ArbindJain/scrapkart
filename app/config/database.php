@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'scrapkart',
 			'username'  => 'root',
-			'password'  => 'higher',
+			'password'  => 'lakshyalakie',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

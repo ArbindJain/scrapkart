@@ -53,8 +53,8 @@ class ProductsController extends \BaseController {
 		$products = Product::orderBy('p_id','desc')->paginate(3);
 		$users = User::all();
 		$users = User::orderBy('id','desc')->paginate(3);
-		$suppliers = Product::lists('supplier');
-    $metals = Product::lists('metal');
+		$suppliers = Product::lists('supplier', 'supplier');
+    $metals = Product::lists('metal', 'metal');
 
 		return View::make('products.list')
 		->with('products',$products)
