@@ -13,13 +13,7 @@
 		<li>Designation: {{ $user->designation }}</li>
 	</ul>
 
-	@foreach($products as $product)
-		<ul>
-				<li>{{$product->supplier}}</li>
-				<li>{{$product->shape}}</li>
-				<li>{{$product->weight}}</li>
-		</ul>
-	@endforeach
+
 
 	@if(Sentry::check())
 

@@ -38,7 +38,7 @@
                     $(".sizeA").show();
                     $(".sizeB").show();
                     $(".place_a").attr("placeholder", "Inner Diameter");
-                    $(".place_b").attr("placeholder", "<b>Outer Diameter");
+                    $(".place_b").attr("placeholder", "Outer Diameter");
                 }
 
                 if($(this).attr("value")=="square"){
@@ -94,13 +94,13 @@
     <![endif]-->
   </head>
   <body>
-  <section id="first-row">
+ <section id="first-row">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
               <div class="pull-left">
               <ul class="list-inline ">
-        @if (!Sentry::check())
+              @if (!Sentry::check())
 
                 <li class="list-unstyled"><span class="hidden-xs"> Welcome , <i class="fa fa-user"></i>  Guest</span>
                   <i class="fa fa-question-circle fa-2x hide visible-xs"></i></li>
@@ -118,12 +118,10 @@
               @if (!Sentry::check())
 
                   <li class="{{ set_active('login') }} list-unstyled pull-right"><a href="/login" class="right-head"><span class="hidden-xs"><i class="fa fa-sign-in"></i> Sign In</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
-
                   <li class="hidden-xs {{ set_active('register') }} list-unstyled pull-right right-head"> <a class="right-head pull-right" href="/register" ><i class="fa fa-plus"></i> Create Account </a> </li>
                 @else
-                 <li class="{{ set_active('profiles') }} list-unstyled "><a class="right-head" href="/profiles/{{Sentry::getUser()->id}}" ><span class="hidden-xs"><i class="fa fa-bolt"></i> My Profile</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
-
-                  <li class="hidden-xs list-unstyled"> <a class="right-head pull-right" href="/logout" ><i class="fa fa-sign-out"></i> Logout </a> </li>
+                  <li class="hidden-xs  list-unstyled pull-right right-head"> <a class="right-head pull-right" href="/logout" ><i class="fa fa-sign-out"></i> Logout </a> </li>
+                  <li class="{{ set_active('profiles') }} list-unstyled pull-right"><a href="/profiles/{{Sentry::getUser()->id}}" class="right-head"><span class="hidden-xs"><i class="fa fa-bolt"></i> My Profile</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
 
                 @endif
               </ul>

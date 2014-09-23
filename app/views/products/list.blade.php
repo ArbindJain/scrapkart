@@ -34,8 +34,7 @@
                 {{ Form::open(['route' => 'filter.search', 'class' => 'form-horizontal']) }}
                 {{ Form::select('supplier', ['' => 'All Suppliers'] + $suppliers, ['class' => 'form-control input-sm'])}}
                     {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('grade_a', null, ['placeholder' => 'Grade A', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('grade_b', null, ['placeholder' => 'Grade B', 'class' => 'form-control input-sm'])}}
+                    {{ Form::text('grade_a', null, ['placeholder' => 'Grade', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_from', null, ['placeholder' => 'Volume From', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_to', null, ['placeholder' => 'Volume To', 'class' => 'form-control input-sm'])}}
@@ -64,31 +63,31 @@
                 <div class=" box-text">Supplier: <c class="box-val text-capitalize">{{ $product->supplier}}</c></div>
                 <div class=" box-text">City: <c class="box-val text-capitalize">{{ $product->user->city}}</c></div>
                 <div class=" box-text">Grade: <c class="box-val text-capitalize">{{ $product->grade_a}} - {{ $product->grade_b}}</c></div>
-                <div class=" box-text">Thickness: <c class="box-val text-capitalize">{{ $product->thickness}} mm</c></div>
+                <div class=" box-text">Thickness: <c class="box-val text-capitalize">{{ $product->thickness}}</c> mm</div>
             </div>
             <div class="col-md-3">
                 <div class=" box-textb"></div>
                 <div class=" box-texta">Shape: <c class="box-val text-capitalize">{{ $product->shape}}</c></div>
                 @if ( $product->shape === 'circle')
-                        <div class=" box-texta">Inner Diameter: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
-                        <div class=" box-texta">Outer Diameter: <c class="box-val text-capitalize">{{ $product->size_b}} mm</c></div>
+                        <div class=" box-texta">Inner Diameter: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
+                        <div class=" box-texta">Outer Diameter: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
                         @elseif ($product->shape === 'square')
-                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
+                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
                         @elseif ($product->shape === 'rectangle')
-                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
-                        <div class=" box-texta">Breadth: <c class="box-val text-capitalize">{{ $product->size_b}} mm</c></div>
+                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
+                        <div class=" box-texta">Breadth: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
                         @elseif ($product->shape === 'triangle')
-                        <div class=" box-texta">Side A: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
-                        <div class=" box-texta">Side B: <c class="box-val text-capitalize">{{ $product->size_b}} mm</c></div>
-                        <div class=" box-texta">Side C: <c class="box-val text-capitalize">{{ $product->size_c}} mm</c></div>
+                        <div class=" box-texta">Side A: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
+                        <div class=" box-texta">Side B: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
+                        <div class=" box-texta">Side C: <c class="box-val text-capitalize">{{ $product->size_c}} </c>mm</div>
                         @elseif ($product->shape === 'trapezoid')
-                        <div class=" box-texta">Side A: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
-                        <div class=" box-texta">Side B: <c class="box-val text-capitalize">{{ $product->size_b}} mm</c></div>
-                        <div class=" box-texta">Height:: <c class="box-val text-capitalize">{{ $product->size_c}} mm</c></div>
+                        <div class=" box-texta">Side A: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
+                        <div class=" box-texta">Side B: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
+                        <div class=" box-texta">Height:: <c class="box-val text-capitalize">{{ $product->size_c}} </c>mm</div>
                         @elseif ($product->shape === 'others')
-                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} mm</c></div>
-                        <div class=" box-texta">Breadth: <c class="box-val text-capitalize">{{ $product->size_b}} mm</c></div>
-                        <div class=" box-texta">Height: <c class="box-val text-capitalize">{{ $product->size_c}} mm</c></div>
+                        <div class=" box-texta">Length: <c class="box-val text-capitalize">{{ $product->size_a}} </c>mm</div>
+                        <div class=" box-texta">Breadth: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
+                        <div class=" box-texta">Height: <c class="box-val text-capitalize">{{ $product->size_c}} </c>mm</div>
                         @endif
                 <div class=" box-texta">Volume: <c class="box-val text-capitalize">{{ $product->volume}} - {{ $product->bynumber}} - {{ $product->perday}}</c></div>
             </div>
@@ -98,14 +97,17 @@
                 <div class=" box-textc">Posted On:<c class="box-val text-capitalize">{{$variable}}</c></div>
                 @if ($string = str_random(10) )
                     @endif
+              <!--  <a href="{{$product->images}}" data-lightbox="random{{$string}}">{{HTML::image($product->images,'Thumb', array('class' => 'thumb'))}}</a>
                 <a href="{{$product->images}}" data-lightbox="random{{$string}}">{{HTML::image($product->images,'Thumb', array('class' => 'thumb'))}}</a>
                 <a href="{{$product->images}}" data-lightbox="random{{$string}}">{{HTML::image($product->images,'Thumb', array('class' => 'thumb'))}}</a>
-                <a href="{{$product->images}}" data-lightbox="random{{$string}}">{{HTML::image($product->images,'Thumb', array('class' => 'thumb'))}}</a>
+-->                 @if($product->files === '0')
+                    <strong class="box-thumb"><a href="{{$product->files}}">No CAD File Available <br><i class="fa fa-download fa-2x down-but"></i></a></strong>
+                    @else
+                    <strong class="box-thumb"><a href="{{$product->files}}">Download CAD File <br><i class="fa fa-download fa-2x down-but"></i></a></strong>
+                    @endif
+                  {{ HTML::linkAction('MailController@interested','I AM INTERESTED',array(),array('class'=>'btn btn-success box-button')) }}
 
-                 <strong class="box-thumb">Click to enlarge image </strong>
-
-                         {{ HTML::linkAction('MailController@interested','I AM INTERESTED',array(),array('class'=>'btn btn-success box-button')) }}
-
+                        
             </div>
         </div>
     </div>

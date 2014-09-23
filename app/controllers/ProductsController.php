@@ -14,7 +14,7 @@ class ProductsController extends \BaseController {
 						$product = new Product();
 
 			$product->user_id = $ued;
-			$product->metal = 'steel';
+			$product->metal = Input::get('metal');
 			$product->supplier = Input::get('supplier');
 			$product->grade_a = Input::get('grade_a');
 			$product->grade_b = Input::get('grade_b');
@@ -38,7 +38,17 @@ class ProductsController extends \BaseController {
 				}else{
 					$product->images = 'images/default.jpg';
 				}
+				$cadfilename = date('Y-m-d-H:i:s')."-".rand(1,100);
+				if(Input::hasfile('files')){
+					Input::file('files')->save('public/img/', $cadfilename);
+					$product->files = 'img/'. $cadfilename;
+				}
+				else {
+					$product->files = '0';
+				}
 
+
+				 
 
 						$product->save();
 
@@ -62,6 +72,49 @@ class ProductsController extends \BaseController {
 		->with('metals',$metals)
 		->with('users',$users);
 	}
+
+	public function update(){
+			$p_id = Input::get('p_id');
+			$metal = Input::get('Metal');
+			$supplier = Input::get('supplier');
+			$grade_a = Input::get('grade_a');
+			$grade_b = Input::get('grade_b');
+			$shape = Input::get('shape');
+			$size_a = Input::get('size_a');
+			$size_b = Input::get('size_b');
+			$size_c = Input::get('size_c');
+			$thickness = Input::get('thickness');
+			$volume = Input::get('volume');
+			$bynumber = Input::get('bynumber');
+			$perday = Input::get('perday');
+			$defaultmetal = Product::where('p_id',$p_id)->first();
+			if($metal == "" or "null"){
+				$metal = $defaultmetal->metal;
+				}
+				elseif($grade_a == "" or "null"){
+					$grade_a =$defaultmetal->grade_a;
+				}
+			
+		DB::table('products')
+            ->where('p_id', $p_id)
+            ->update(array(
+            	'metal' => $metal,
+            	'supplier' => $supplier,
+            	'grade_a' => $grade_a,
+            	'grade_b' => $grade_b,
+            	'shape' => $shape,
+            	'size_a' => $size_a,
+            	'size_b' => $size_b,
+            	'size_c' => $size_c,
+            	'thickness' => $thickness,
+            	'volume' => $volume,
+            	'bynumber' => $bynumber,
+            	'perday' => $perday,
+
+            	));
+	}
+
+
 
 
 

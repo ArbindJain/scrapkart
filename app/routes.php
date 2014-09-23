@@ -9,6 +9,10 @@ Route::group(['before' => 'redirectAdmin'], function()
 	Route::get('/home', ['as' => 'home', 'uses' => 'PagesController@getHome']);
 	Route::get('/about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
 	Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
+	Route::get('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
+		Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
+	Route::get('/scrap/metal', ['as' => 'metal', 'uses' => 'PagesController@getmetal']);
+
 });
 
 # Registration
@@ -38,7 +42,7 @@ Route::group(['before' => 'auth|standardUser'], function()
 {
 	Route::get('userProtected', 'StandardUserController@getUserProtected');
 	Route::resource('profiles', 'UsersController', ['only' => ['show', 'edit', 'update']]);
-	Route::post('profiles'.'')
+	 	
 });
 
 # Admin Routes
@@ -55,12 +59,12 @@ Route::group(['before' => 'auth|standardUser'], function()
 		Route::get('/product', 'ProductsController@create');
 		Route::post('/product', ['as' => 'products.store', 'uses' => 'ProductsController@store']);
 		Route::get('/list','ProductsController@display');
+		Route::post('/',['as' => 'products.update', 'uses' => 'ProductsController@update']);
 
 });
 
-		Route::get('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
-		Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
-		Route::get('/image','ImageController@imageinsert');
+		
+		//Route::get('/image','ImageController@imageinsert');
 //		Route::post('/image',['as' => 'images.store', 'uses' => 'ImageController@imagestore']);
 //		Route::get('/imaged','ImageController@imageview');
 
@@ -92,6 +96,7 @@ Route::put('theme',function(){
 		});
 
 Route::get('/success','MailController@interested');
+
 
 
 

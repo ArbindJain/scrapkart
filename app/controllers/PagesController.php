@@ -20,6 +20,11 @@ class PagesController extends \BaseController {
 	{
 		return View::make('pages.contact');
 	}
+	public function getmetal()
+	{
+		return View::make('pages.metal');
+	}
+
 
 
 }

@@ -10,6 +10,10 @@ class DbUserRepository implements UserRepositoryInterface {
 	{
 		return User::all();
 	}
+	public function getAlll()
+	{
+		return Product::all();
+	}
 
 	public function find($id)
 	{
