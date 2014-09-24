@@ -2,7 +2,7 @@
 
 body {
 	background-color: #EDEDED;
-	font-family: 'Lato', sans-serif
+	font-family: 'Lato', sans-serif;
 }
 
 /* ----------Header ----------------*/
@@ -39,7 +39,6 @@ border-bottom: 5px solid #D4D4D4;
 
 /* search block*/
 .third-row {
-	background-color: #F2F2F2;
 	margin-top: -5px;
 }
 .form-horizontal {
@@ -354,7 +353,6 @@ input {
 }
 .filter-block{
 	display: block;
-	background-color: #FBFBFB;
 	height: 100%;
 	margin-right: 10px;
 }
@@ -724,6 +722,9 @@ padding: 10px 40px 10px 60px;
 .margin-top-40 {
 	margin-top: 40px;
 }
+.margin-top-50 {
+	padding-top: 50px;
+}
 .margin-90 {
 	margin-left: 70px;
 }/* Sign Up info */
@@ -744,5 +745,99 @@ padding: 10px 40px 10px 60px;
 .signup-info-matter {
 	display: block;
 	background-color:#78E8A7;
-	margin-right: 90px;
+	margin-right: 50px;
+margin-left: 40px;
+}
+/* registration */
+.input-lgg {
+	border-radius: 0px;
+	border-left-width: 5px;
+	border-color:#ccc;
+}
+
+
+/* about us */
+.about-arrow {
+	margin-top:100px;
+	margin-left: -30px;
+}
+.about-img {
+	width: 180px;
+	height: 180px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.about-block-con{
+	margin-top: 10px;
+}
+.what-block{
+	text-align: center;
+	padding: 20px 50px;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 44px;
+}
+.what-block-para{
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 300;
+	padding: 10px 60px;
+	text-align:center;
+}
+.adva {
+	display: block;
+	padding: 0px 0px 0px 200px;
+	font-size: 16px;
+}
+.sadva{
+	display: block;
+	padding: 0px 180px 0px 10px;
+	font-size: 16px;
+}
+.adva-light {
+	font-weight: 300;
+}
+.team-a {
+margin-left: 230px;
+}
+.team-top{
+	margin-top:70px;
+	margin-bottom: 40px;
+}
+.info-name {
+	padding-left: 70px;
+}
+.info-names {
+	padding-left: 90px;
+}
+.info-img {
+	margin-left: 30px;
+}
+.info-abt {
+	margin-right:50px;
+}
+/*footer */
+.footers {
+background-color: #D4D4D4;
+padding-top: 35px;
+color:#000;
+
+
+}
+.low-foot {
+	padding-top: 10px;
+	padding-bottom: 8px;
+	background-color: #a5a4a4;
+
+	
+}
+.si {
+	font-size: 20px;
+}
+.suppl {
+	display: block;
+	margin-bottom: 5px;
+}
+.margin-top-4 {
+	margin-top: 6px;
 }

@@ -40,7 +40,7 @@ class ProductsController extends \BaseController {
 				}
 				$cadfilename = date('Y-m-d-H:i:s')."-".rand(1,100);
 				if(Input::hasfile('files')){
-					Input::file('files')->save('public/img/', $cadfilename);
+					Input::file('files')->move('public/img/', $cadfilename);
 					$product->files = 'img/'. $cadfilename;
 				}
 				else {

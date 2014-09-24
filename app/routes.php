@@ -6,11 +6,10 @@ Route::when('*', 'csrf', ['POST', 'PUT', 'PATCH', 'DELETE']);
 # Static Pages. Redirecting admin so admin cannot access these pages.
 Route::group(['before' => 'redirectAdmin'], function()
 {	Route::get('/', ['as' => 'index', 'uses' => 'PagesController@getindex']);
-	Route::get('/home', ['as' => 'home', 'uses' => 'PagesController@getHome']);
 	Route::get('/about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
 	Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@getContact']);
 	Route::get('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
-		Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
+	Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
 	Route::get('/scrap/metal', ['as' => 'metal', 'uses' => 'PagesController@getmetal']);
 
 });
@@ -41,7 +40,7 @@ Route::group(['before' => 'guest'], function()
 Route::group(['before' => 'auth|standardUser'], function()
 {
 	Route::get('userProtected', 'StandardUserController@getUserProtected');
-	Route::resource('profiles', 'UsersController', ['only' => ['show', 'edit', 'update']]);
+	Route::resource('profiles', 'UsersController', ['only' => [ 'edit', 'update']]);
 	 	
 });
 
@@ -70,18 +69,18 @@ Route::group(['before' => 'auth|standardUser'], function()
 
 		Route::post('uploads',function(){
 			$user = new Picture();
-
-			$user->user_id = '3';
+			$ued = Sentry::getUser()->id;
+			$user->user_id = $ued;
 
 		    if($image = Input::file('images')){
 					$filename = date('Y-m-d-H:i:s')."-".rand(1,100);
 					Image::make($image->getRealPath())
 								->resize(150,150)
-								->save('images/'. $filename);
+								->save('public/images/'. $filename);
 
-					$user->images = 'images/'. $filename;
+					$user->pic = 'images/'. $filename;
 				}else{
-					$user->images = 'images/default.jpg';
+					$user->pic = 'images/default.jpg';
 				}
 			    if($user->save()){
 			        return 'passed';

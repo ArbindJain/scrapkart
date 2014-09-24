@@ -37,12 +37,12 @@ class RegistrationController extends \BaseController {
 @return Response      */     public function store()     
 {         
 	$input =Input::only('name','email', 'password', 'password_confirmation', 'mobile',
- 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','turnover','pan','terms','images');
+ 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','others', 'turnover','pan','terms','images');
 
 		$this->registrationForm->validate($input);
 
 		$input = Input::only('name','email', 'password', 'mobile',
- 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','turnover','pan','terms');
+ 'company_name', 'designation','country', 'city', 'address', 'pin_code', 'phone','business_type','others', 'turnover','pan','terms');
 		
 		
 		$input = array_add($input, 'activated', true);

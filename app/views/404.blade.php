@@ -4,22 +4,23 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="error-template">
-            <h1>
-                Oops!</h1>
-            <h2>
-                404 Not Found</h2>
-            <div class="error-details">
-                Sorry, an error has occured, Requested page not found!
+<div class="container">
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1 centered">
+                <br><br><br><br>
+                <img src="/img/404.png" alt="">
+                <br><br><br>
+                <h2>OOOPS!<br> 
+                you are not in the right place.
+                </h2>
+                <br>
+                <hr>
+                <br>
+                <h4>WE CAN HELP YOU TO FIND YOUR PATH.</h4>
+                <br>
+                <p><b><a href="index.html">Back to Home</a> | <a href="contact.html">Contact Us</a></b></p>
             </div>
-            <div class="error-actions">
-                <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                    Take Me Home </a>
-            </div>
-        </div>
+        </div><!-- row -->
+        <br>
     </div>
-</div>
-
 @stop

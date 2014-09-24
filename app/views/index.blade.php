@@ -125,7 +125,7 @@
                   <li class="hidden-xs {{ set_active('register') }} list-unstyled pull-right right-head"> <a class="right-head pull-right" href="/register" ><i class="fa fa-plus"></i> Create Account </a> </li>
                 @else
                   <li class="hidden-xs  list-unstyled pull-right right-head"> <a class="right-head pull-right" href="/logout" ><i class="fa fa-sign-out"></i> Logout </a> </li>
-                  <li class="{{ set_active('profiles') }} list-unstyled pull-right"><a href="/profiles/{{Sentry::getUser()->id}}" class="right-head"><span class="hidden-xs"><i class="fa fa-bolt"></i> My Profile</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
+                  <li class="{{ set_active('profiles') }} list-unstyled pull-right"><a href="/profiles/{{Sentry::getUser()->id}}/edit" class="right-head"><span class="hidden-xs"><i class="fa fa-bolt"></i> My Profile</span><i class="fa fa-sign-in fa-2x hide visible-xs"></i></a></li>
 
                 @endif
               </ul>
@@ -183,7 +183,7 @@
           </div>
        </div>
        </div>
-       <div class="row margin-top-40">
+       <div class="row margin-top-40" style="margin-bottom:50px;">
         <div class="container">
          <div class="col-md-3 col-md-offset-2 ">
          <a href ="/scrap/metal" ><img src="/img/scrap.png">
@@ -209,9 +209,66 @@
                   
        </div>
        </div>
-      <section class="footer">
+      <section class="footers">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-2">
+          <p>LINKS</p>
+          <p>
+          <small><a href="#">FAQ</a></small><br>
+          <small><a href="#">About us</a></small><br>
+          <small><a href="#">Contact</a></small><br>
+          <small><a href="#">Terms & Condition</a></small>
 
+          </p>
+        </div>
+        <div class="col-lg-2">
+          <p>LINKS</p>
+          <p>
+          <small><a href="#">FAQ</a></small><br>
+          <small><a href="#">About</a></small><br>
+          <small><a href="#">Contact</a></small><br>
+          <small><a href="#">Terms & Condition</a></small>
+
+          </p>
+        </div>
+
+        <div class="col-lg-4">
+          <p>MAIN OFFICE</p>
+          <p><small>
+            +00 3893-4904<br>
+            +00 3893-4904
+          </small></p>
+        </div>
+        
+        <div class="col-lg-4">
+          <p>OUR NEWSLETTER</p>
+          <p><small>Subscribe Now.</small></p>
+          <p><input type="text" placeholder="Add your email here" class="form-control input-md flat"></p>
+        </div>
+        
+        
+      </div><!-- /row -->
+    </div><!-- /container -->
+    
+<div class=" low-foot">
+<div class="container ">
+      <div class="row">
+        <div class="col-lg-6">
+            <a href="#"><i class="fa fa-facebook-square si "></i></a>
+            <a href="#"><i class="fa fa-twitter si  margin-7"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square si margin-7"></i></a>
+           </div>
+        <div class="col-lg-6">
+            <span class="pull-right"> <i class="fa fa-copyright"></i>2014. PRIVACY POLICY </span>
+           </div>
+        
+      </div>
+    </div>
+    </div>
       </section>
+      
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

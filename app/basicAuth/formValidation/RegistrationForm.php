@@ -17,7 +17,7 @@ class RegistrationForm extends FormValidator {
 			'pan'=>'required|alpha_num:10',
 			'terms'=>'accepted',
 			'password'=>'required|alpha_num|between:6,12|confirmed',
-			'password_confirmation'=>'required',
+			'password_confirmation'=>'required'
 	];
 }
 

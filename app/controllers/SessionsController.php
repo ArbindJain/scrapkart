@@ -67,7 +67,7 @@ class SessionsController extends \BaseController {
 	{
 		Sentry::logout();
 
-		return Redirect::home();
+		return Redirect::intended('/');
 	}
 
 }

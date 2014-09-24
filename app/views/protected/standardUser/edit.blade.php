@@ -13,7 +13,12 @@
 <div class="container">
     <div class="row">
   		<div class="col-sm-10"><h1>{{$user->name}} Dashboard </h1></div>
-    	<div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+    	<div class="col-sm-2">
+      
+          
+        
+      </a>
+      </div>
     </div>
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
@@ -56,7 +61,7 @@
           <ul class="nav nav-tabs" id="myTab">
             <li class="active"><a href="#changeimage" data-toggle="tab">Your Post</a></li>
             <li><a href="#settings" data-toggle="tab">Edit Profile</a></li>
-            <li><a href="#messages" data-toggle="tab">Change Image</a></li>
+            <li><a href="#message" data-toggle="tab">Change Image</a></li>
           </ul>
               
           <div class="tab-content">
@@ -114,12 +119,12 @@
                  <strong class="box-thumb">Click to enlarge image </strong>
                    
                     <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_{{$product->p_id}}">
   Edit Listing
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal_{{$product->p_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -150,7 +155,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-md-12 pull-left">
-                {{ Form::select('metal', array('va' => 'Select Metal','steel' => 'Steel','aluminum' => 'Aluminum','copper' => 'Copper','iron' => 'Iron','cobalt' => 'Cobalt','nickel' => 'Nickel'), ['class' => 'form-control'])}}
+                {{ Form::select('metal', array('' => 'Select Metal','steel' => 'Steel','aluminum' => 'Aluminum','copper' => 'Copper','iron' => 'Iron','cobalt' => 'Cobalt','nickel' => 'Nickel'), $product->metal, ['class' => 'form-control'])}}
                 {{ errors_for('metal', $errors) }}
                 </div>
               </div>
@@ -160,7 +165,7 @@
               <!-- supplier name field -->
               <div class="row">
                 <div class="form-group col-md-12 pull-left">
-                {{ Form::text('supplier', null, ['placeholder' => $product->supplier, 'class' => 'form-control input-lg'])}}
+                {{ Form::text('supplier', $product->supplier, ['class' => 'form-control input-lg'])}}
                 {{ errors_for('supplier', $errors) }}
               </div>
               </div>
@@ -303,13 +308,7 @@
               </div>
               
              </div><!--/tab-pane-->
-             <div class="tab-pane" id="message">
-               
-
-               <h2></h2>
-               
-               
-             </div><!--/tab-pane-->
+            
              <div class="tab-pane" id="settings">
             		
                	
@@ -359,10 +358,21 @@
 			{{ Form::submit('Update Profile', ['class' => 'btn btn-primary']) }}
 		</div>
 	{{ Form::close() }}
-              </div>
                
               </div><!--/tab-pane-->
+              <div class="tab-pane" id="message">
+               
+
+               {{Form::open(array('url'=> 'uploads','files'=>'true'))}}
+               {{Form::file('images')}}
+               {{Form::submit('upload')}}
+               {{Form::close()}}
+               
+               
+             </div><!--/tab-pane-->
+               
           </div><!--/tab-content-->
+          
 
         </div><!--/col-9-->
     </div><!--/row-->

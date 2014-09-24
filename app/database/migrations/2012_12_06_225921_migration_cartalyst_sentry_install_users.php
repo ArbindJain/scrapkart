@@ -51,6 +51,7 @@ class MigrationCartalystSentryInstallUsers extends Migration {
 			$table->string('pin_code');
 			$table->integer('phone');
 			$table->string('business_type');
+			$table->string('others');
 			$table->integer('turnover');
 			$table->string('pan');
 			$table->integer('terms');

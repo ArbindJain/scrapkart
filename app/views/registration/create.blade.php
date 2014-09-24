@@ -152,8 +152,13 @@
 							</div>
 							<!-- business_type -->
 							<div class="form-group">
-								{{ Form::select('business_type', array('' => 'Primary Business Type','manufacturer' => 'Manufacturer','foundry' => 'Foundry','traders' => 'Trader','others' => 'Others'), ['class' => 'form-control input-llg'])}}
+								{{ Form::select('business_type', array('' => 'Primary Business Type','manufacturer' => 'Manufacturer','foundry' => 'Foundry','traders' => 'Trader','other' => 'Others'), ['class' => 'form-control input-llg'])}}
 								{{ errors_for('business_type', $errors) }}
+							</div>
+							<!--others-->
+							<div class="form-group ">
+								{{ Form::text('others', null, ['placeholder' => 'others', 'class' => 'form-control input-lg input-llg box sizeA', 'required' => 'required'])}}
+								{{ errors_for('others', $errors) }}
 							</div>
 							<div class="row">
 							<!-- Turn over -->

@@ -104,6 +104,7 @@ class User extends Cartalyst\Sentry\Users\Eloquent\User implements UserInterface
     	return $this->hasMany('Product');
     }
     
+    
 
 
 

@@ -31,16 +31,16 @@
                 <b>FILTER SCRAP BY</b>
             </div>
             <div class="filter-body">
-                {{ Form::open(['route' => 'filter.search', 'class' => 'form-horizontal']) }}
-                {{ Form::select('supplier', ['' => 'All Suppliers'] + $suppliers, ['class' => 'form-control input-sm'])}}
-                    {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-sm'])}}
+                {{ Form::open(['route' => 'filter.search', 'class' => 'form-inline']) }}
+             <div class="form-group suppl">   {{ Form::select('supplier', ['' => 'All Suppliers'] + $suppliers, ['class' => 'form-control input-sm'])}}<br>
+                    {{ Form::text('city', null, ['placeholder' => 'City', 'class' => 'form-control input-sm margin-top-4'])}}</div>
                     {{ Form::text('grade_a', null, ['placeholder' => 'Grade', 'class' => 'form-control input-sm'])}}
+                    {{ Form::text('shape', null, ['placeholder' => 'Shape', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_from', null, ['placeholder' => 'Volume From', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('volume_to', null, ['placeholder' => 'Volume To', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('date_from', null, ['placeholder' => 'Date From', 'class' => 'form-control input-sm'])}}
                     {{ Form::text('date_to', null, ['placeholder' => 'Date To', 'class' => 'form-control input-sm'])}}
-                    {{ Form::text('shape', null, ['placeholder' => 'Shape', 'class' => 'form-control input-sm'])}}
                     {{ Form::submit('Filter', ['class' => 'btn btn-md btn-info ']) }}
                 {{ Form::close() }}
 
@@ -89,7 +89,8 @@
                         <div class=" box-texta">Breadth: <c class="box-val text-capitalize">{{ $product->size_b}} </c>mm</div>
                         <div class=" box-texta">Height: <c class="box-val text-capitalize">{{ $product->size_c}} </c>mm</div>
                         @endif
-                <div class=" box-texta">Volume: <c class="box-val text-capitalize">{{ $product->volume}} - {{ $product->bynumber}} - {{ $product->perday}}</c></div>
+                        <div class=" box-texta">Volume: <c class="box-val text-capitalize">{{ $product->volume}} / {{ $product->bynumber}}  {{ $product->perday}}</c></div>
+                        
             </div>
             <div class="col-md-3 last-box">
                 @if ($variable = str_limit($product->created_at,10) )

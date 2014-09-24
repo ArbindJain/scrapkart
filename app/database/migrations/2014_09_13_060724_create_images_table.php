@@ -13,12 +13,12 @@ class CreateImagesTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('images',function(Blueprint $table)
+		Schema::create('pictures',function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->string('images');
+			$table->string('pic');
 			$table->timestamps();
 		});
 	}
@@ -31,7 +31,7 @@ class CreateImagesTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('images');
+		Schema::drop('pictures');
 	}
 
 }

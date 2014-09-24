@@ -3,37 +3,82 @@
 @section('title', 'About')
 
 @section('content')
-
-
-	<div class="jumbotron">
-		<h1>About Page</h1>
-
-
-		<h3><br><i class="fa fa-puzzle-piece fa-2x"></i> What is Scrapkart ?</h3><br>
-
-		<div>
-			<h4>
-				Scrapkart is a eco-friendly initiative for Optimum Resource Utilization in Heavy and Light Industruies ! <br><br>
-				With each product manufactured there is a percentage of Raw Material that is scrapped or wasted. Often this scrap is remelted in a furnace and resold as raw material once again - wasting a lot of valuable energy and evironmental resources in the process.
-				<br><br>We at Scrapkart envision a scenario where we can help provide this scrap to other businesses and industries who can use it as a direct source of raw material.<br><br>There are two major advantages to this<h3>Cost Cutting :</h3>Companies can buy raw material at reduced costs<br>At the same time selling their waste/scrap for increased profits ! <br><h3>Eco- Friendly :</h3>By buying and selling directly on via Scrapkart your Company's Carbon Footprint is significantly reduced !
-			</h4>
+	<div class="about-block" style="background-color:#78E8A7;  " >
+		<div class="row">
+			<div class="container about-block-con">
+				<div class="col-md-3 col-md-offset-1 about-img-block">
+					<img class="about-img" src="/img/kart.png">
+				</div>
+				<div class="col-md-1">
+					<i class="fa fa-exchange fa-3x about-arrow"></i>
+				</div>
+				<div class="col-md-3 about-img-block">
+					<img class="about-img" src="/img/green.png">
+				</div>
+				<div class="col-md-1">
+					<i class="fa fa-plus fa-3x about-arrow"></i>
+				</div>
+				<div class="col-md-3 about-img-block">
+					<img class="about-img" src="/img/money.png">
+				</div>
+			</div>
 		</div>
-		
-
-		<h3><i class="fa fa-angellist"></i> The Team </h3><br>
-		<div class="col-md-6"><div style="float:left;"><img src="http://localhost:8000/images/2014-09-22-11:33:02-86" class="mainthumb" alt="Thumb"></div>
-		<div style="margin-left:10px;"><h4>Abhishek Kumar</h4>
-		<p>Silent by nature , continued to stay silent in Toyota India for 4 yrs & when the silence broke Gemba Concepts was born<br><br></p></div>
-</div>
-		<div class="col-md-6">
-		<div style="float:right;margin-left:10px;"><img src="http://localhost:8000/images/customer-img-2.jpg" class="mainthumb" alt="Thumb"></div>
-		<div style="margin-left:10px;" ><h4>Mohit Bafna</h4>
-		<p>An avid Lawn tennis player & car enthusiast ended up at Toyota India by mistake, went on to start Gemba Concepts<br></p></div>
+	</div><!-- about block end -->
+	<div class="row">
+		<section class="footer">
+		<div class="container">
+			<div class="col-md-12">
+				<h1 class="what-block">
+					What is scrapkart ?
+					<br>
+				</h1>
+			</div>
+			<div class="col-md-12 ">
+				<p class="what-block-para">
+					<b>SCRAPKART </b>is a eco-friendly initiative for Optimum Resource Utilization in Heavy and Light Industruies !<br>
+				    With each product manufactured there is a percentage of Raw Material that is scrapped or wasted. Often this<br>
+				    scrap is remelted in a furnace and resold as raw material once again wasting a lot of valuable energy and <br>
+				    evironmental resources in the process. We at Scrapkart envision a scenario where we help provide this scrap<br>
+				    to other businesses and industries who can use it as a direct source of raw material.
+				 <br>
+			
+				</p>
+			</div>
+			<br></br>
+			<div class="col-md-6 margin-top-40 adva">
+				<span class="text-center" ><i class="fa fa-scissors"></i>&nbsp;&nbsp;Cost Cutting </span><br>
+			<c class="adva-light">Companies can buy raw material at reduced costs
+			At the same time selling their waste/scrap for increased profits!</c>
+			</div>
+			<div class="col-md-6 margin-top-40 sadva ">
+			<span class="text-center" ><i class="fa fa-recycle"></i> &nbsp;&nbsp;Eco- Friendly </span><br>
+			<c class="adva-light">
+			By buying and selling directly on via Scrapkart your Company's Carbon
+			Footprint is significantly reduced!
+			</c>
+			</div>
+			
 		</div>
-		
-		
-
-		
+	</div><!-- what is scrapt kart? -->
+	<div class="row" style="margin-top:30px; margin-bottom:30px;">
+		<div class="container">
+		<h1 class="text-center team-top"> Our Team </h1>
+			<div class="col-md-4 team-a">
+				 <img class="img-responsive img-circle inf0-img " src="img/register.png" /><br>
+				 <span class="info-name">Abhishek Kumar</span>
+				 <p class="info-abt">Silent by nature , continued to stay silent in Toyota India for 4 yrs & when the silence broke Gemba Concepts was born.</p>
+        
+			</div>
+			<div class="col-md-4 team-b">
+				 <img class="img-responsive img-circle" src="img/register.png" /><br>
+				 <span class="info-names">Mohit Bafna</span>
+				 <p class="info-abt">An avid Lawn tennis player & car enthusiast ended up at Toyota India by mistake, went on to start Gemba Concepts</p>
+        
+			</div>
+		</div>
 	</div>
+	</section>
+	
 
+	
 @stop

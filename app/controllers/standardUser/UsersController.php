@@ -33,18 +33,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		// $user = User::findOrFail($id);
-		$user = $this->user->find($id);
-		
-
-		return View::make('protected.standardUser.show')
-			->withUser($user);
-			
-
-
-	}
+	
 
 
 	/**
@@ -56,10 +45,15 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		// $user = User::findOrFail($id);
-		$user = $this->user->find($id);
 		$ued = Sentry::getUser()->id;
+		
+		$user = $this->user->find($id);
+		
 		//$products =  DB::table('products')->where('user_id',$ued)->get();
 		$products = Product::where('user_id',$ued)->paginate(10);
+		//$picture = DB::table('pictures')->where('user_id',$ued)->find(1);
+		//$pictures = Picture::where('user_id',$ued)->find(1);
+
 
 		return View::make('protected.standardUser.edit')->withUser($user)
 		->with('products',$products);
