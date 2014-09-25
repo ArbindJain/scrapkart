@@ -3,7 +3,7 @@
 @section('title', 'About')
 
 @section('content')
-	<div class="about-block" style="background-color:#78E8A7;  " >
+	<div class="about-block">
 		<div class="row">
 			<div class="container about-block-con">
 				<div class="col-md-3 col-md-offset-1 about-img-block">
@@ -64,14 +64,14 @@
 		<div class="container">
 		<h1 class="text-center team-top"> Our Team </h1>
 			<div class="col-md-4 team-a">
-				 <img class="img-responsive img-circle inf0-img " src="img/register.png" /><br>
-				 <span class="info-name">Abhishek Kumar</span>
+				 <img class="img-responsive img-circle inf0-img " src="img/abhi.png" /><br>
+				 <span class="info-name"><b>Abhishek Kumar</b></span>
 				 <p class="info-abt">Silent by nature , continued to stay silent in Toyota India for 4 yrs & when the silence broke Gemba Concepts was born.</p>
         
 			</div>
 			<div class="col-md-4 team-b">
-				 <img class="img-responsive img-circle" src="img/register.png" /><br>
-				 <span class="info-names">Mohit Bafna</span>
+				 <img class="img-responsive img-circle" src="img/mohit.png" /><br>
+				 <span class="info-names"><b>Mohit Bafna</b></span>
 				 <p class="info-abt">An avid Lawn tennis player & car enthusiast ended up at Toyota India by mistake, went on to start Gemba Concepts</p>
         
 			</div>

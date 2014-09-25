@@ -111,8 +111,8 @@
 
 
                 @else
-                 <li class="list-unstyled"><a href="#"><span class="hidden-xs"> Welcome , <i class="fa fa-user"></i> {{Sentry::getUser()->name}}</span>
-                  <i class="fa fa-question-circle fa-2x hide visible-xs"></i></a></li>
+                 <li class="list-unstyled"><span class="hidden-xs"> Welcome , <i class="fa fa-user"></i> {{Sentry::getUser()->name}}</span>
+                  <i class="fa fa-question-circle fa-2x hide visible-xs"></i></li>
 
                 @endif
               </ul>
@@ -148,10 +148,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="{{ set_active('/') }}"><a href="/">Home</a></li>
                     <li class="{{ set_active('about') }}"><a href="/about">About</a></li>
+                     <li class="{{ set_active('userProtected') }}"><a href="/list">Search</a></li>
                     <li class="{{ set_active('contact') }}"><a href="/contact">Contact</a></li>
-                    <li class="{{ set_active('userProtected') }}"><a href="/product">List product</a></li>
-                    <li class="{{ set_active('userProtected') }}"><a href="/list">Display listing</a></li>
-                    <li class="{{ set_active('userProtected') }}"><a href="/list">Search</a></li>
+                <!--    <li class="{{ set_active('userProtected') }}"><a href="/product">List product</a></li>-->
+                <!--    <li class="{{ set_active('userProtected') }}"><a href="/list">Display listing</a></li>-->
+                   
                 </ul>
             </div>
         </div>
@@ -174,7 +175,7 @@
         <a class="active purple" href="">Manufactures need to think "out of the box" to optimize costs </a>
         <a class="blue" href="">Scrapkart presents you an opportunity to bolster profits</a>
         <a class="green" href="">Objectively deliver low-risk high-yield intellectual capital before.</a>
-        <br></br> <button type="button" class="btn btn-danger margin-7">REGISTER NOW</button>
+        <br></br> <a href="/register" style="margin-top:94px;"> <button type="button" class="btn btn-danger margin-7">REGISTER NOW</button></a>
     </span>
 
 
@@ -189,21 +190,17 @@
          <a href ="/scrap/metal" ><img src="/img/scrap.png">
          <span class="scrap ">Scrap</span>
          </a>
-          <a class="btn btn-success btn-md margin-60 margin-top-10s" href="http://designmodo.com/flat">Get Pro</a>
-
          </div>
                   <div class="col-md-3 ">
                     <a href =""><img src="/img/material.png">
                       <span class="scraph">Material Handling System</span>
-                      <a class="btn btn-success btn-md margin-60 margin-top-10s" href="http://designmodo.com/flat">Get Pro</a>
-
+                      
                     </a>
                   </div>
                   <div class="col-md-3 ">
                   <a href ="#"><img src="/img/industry.png">
                   <span class="scrap">Machinery</span>
-                  <a class="btn btn-success btn-md margin-90 margin-top-10s" href="http://designmodo.com/flat">Get Pro</a>
-
+                  
                   </a>
                   </div>
                   
@@ -213,7 +210,7 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-lg-2">
+        <div class="col-lg-3 col-lg-offset-1">
           <p>LINKS</p>
           <p>
           <small><a href="#">FAQ</a></small><br>
@@ -223,16 +220,7 @@
 
           </p>
         </div>
-        <div class="col-lg-2">
-          <p>LINKS</p>
-          <p>
-          <small><a href="#">FAQ</a></small><br>
-          <small><a href="#">About</a></small><br>
-          <small><a href="#">Contact</a></small><br>
-          <small><a href="#">Terms & Condition</a></small>
-
-          </p>
-        </div>
+        
 
         <div class="col-lg-4">
           <p>MAIN OFFICE</p>

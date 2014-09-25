@@ -61,7 +61,7 @@ Route::filter('standardUser', function()
 	$user = Sentry::getUser();
     $users = Sentry::findGroupByName('Users');
 
-    if (!$user->inGroup($users))
+    if (!$user->inGroup($users) )
     {
     	return Redirect::to('login');
     }

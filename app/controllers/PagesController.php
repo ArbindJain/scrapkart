@@ -24,6 +24,14 @@ class PagesController extends \BaseController {
 	{
 		return View::make('pages.metal');
 	}
+	public function getcomingsoon()
+	{
+		return View::make('comingsoon');
+	}
+	public function getemailsuccess()
+	{
+		return View::make('emailsuccess');
+	}
 
 
 

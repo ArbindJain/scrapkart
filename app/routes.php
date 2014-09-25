@@ -1,7 +1,7 @@
 <?php
 
 # CSRF Protection
-Route::when('*', 'csrf', ['POST', 'PUT', 'PATCH', 'DELETE']);
+// Route::when('*', 'csrf', ['POST', 'PUT', 'PATCH', 'DELETE']);
 
 # Static Pages. Redirecting admin so admin cannot access these pages.
 Route::group(['before' => 'redirectAdmin'], function()
@@ -11,6 +11,8 @@ Route::group(['before' => 'redirectAdmin'], function()
 	Route::get('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
 	Route::post('/search',['as' => 'filter.search', 'uses' => 'SearchController@search']);
 	Route::get('/scrap/metal', ['as' => 'metal', 'uses' => 'PagesController@getmetal']);
+	Route::get('/comingsoon','PagesController@getcomingsoon');
+	Route::get('/emailsuccess','PagesController@getemailsuccess');
 
 });
 
@@ -58,7 +60,7 @@ Route::group(['before' => 'auth|standardUser'], function()
 		Route::get('/product', 'ProductsController@create');
 		Route::post('/product', ['as' => 'products.store', 'uses' => 'ProductsController@store']);
 		Route::get('/list','ProductsController@display');
-		Route::post('/',['as' => 'products.update', 'uses' => 'ProductsController@update']);
+		Route::post('',['as' => 'products.update', 'uses' => 'ProductsController@update']);
 
 });
 
@@ -96,7 +98,12 @@ Route::put('theme',function(){
 
 Route::get('/success','MailController@interested');
 
+Route::group(['before' => 'auth|standardUser'], function()
+{
+		Route::get('/payment', 'ZwitchController@payment');
+		Route::post('/response','ZwitchController@response');
 
+});
 
 
 

@@ -531,17 +531,21 @@ padding: 10px 40px 10px 60px;
 .scrap{
 	display: block;
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: 400;
 	text-decoration: none;
 	margin-left: 75px;
-	color: #3c3c3c;
+	color: #000;
+	margin-top: 20px;
 }
 .scraph{
+	display: block;
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: 400;
 	text-decoration: none;
 	margin-left: 5px;
-	color: #3c3c3c;
+	color: #000;
+	margin-top: 20px;
+
 };
 .home-block c:hover{
 	text-decoration: none;
@@ -806,9 +810,11 @@ margin-left: 230px;
 }
 .info-name {
 	padding-left: 70px;
+	font-size: 16px;
 }
 .info-names {
 	padding-left: 90px;
+	font-size: 16px;
 }
 .info-img {
 	margin-left: 30px;
@@ -840,4 +846,21 @@ color:#000;
 }
 .margin-top-4 {
 	margin-top: 6px;
+}
+.profileimage {
+width: 100px;
+height:100px;
+}
+/* payment gateway */
+.response-code {
+	display: block;
+	padding: 40px 40px;
+}
+.resp {
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.off {
+	color: green;
+	padding-left: 90px;
 }

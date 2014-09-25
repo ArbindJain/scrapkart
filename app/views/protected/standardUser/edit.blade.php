@@ -10,13 +10,18 @@
 		</div>
 	@endif
 
-<div class="container">
-    <div class="row">
+
   		<div class="col-sm-10"><h1>{{$user->name}} Dashboard </h1></div>
     	<div class="col-sm-2">
+      @if ($image)  
       
-          
-        
+      <img src="/img/abhi.png" class="img-circle profileimage">
+      
+      @elseif(!$image)
+      
+      {{ HTML::image($image[0]->pic, 'profile', array('class' => 'img-circle profileimage')) }} 
+       
+     @endif 
       </a>
       </div>
     </div>
@@ -47,13 +52,7 @@
             <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
           </ul> 
-               
-          <div class="panel panel-default">
-            <div class="panel-heading">Social Media</div>
-            <div class="panel-body">
-            	<i class="fa fa-facebook fa-2x"></i>  <i class="fa fa-twitter fa-2x"></i> 
-            </div>
-          </div>
+          
           
         </div><!--/col-3-->
     	<div class="col-sm-9">
@@ -119,7 +118,7 @@
                  <strong class="box-thumb">Click to enlarge image </strong>
                    
                     <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_{{$product->p_id}}">
+<button class="btn btn-primary btn-lg" style="margin-left:50px;" data-toggle="modal" data-target="#myModal_{{$product->p_id}}">
   Edit Listing
 </button>
 
@@ -155,7 +154,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-md-12 pull-left">
-                {{ Form::select('metal', array('' => 'Select Metal','steel' => 'Steel','aluminum' => 'Aluminum','copper' => 'Copper','iron' => 'Iron','cobalt' => 'Cobalt','nickel' => 'Nickel'), $product->metal, ['class' => 'form-control'])}}
+                {{ Form::select('metal', array($product->metal => 'Select Metal','steel' => 'Steel','aluminum' => 'Aluminum','copper' => 'Copper','iron' => 'Iron','cobalt' => 'Cobalt','nickel' => 'Nickel'), $product->metal, ['class' => 'form-control input-lg'])}}
                 {{ errors_for('metal', $errors) }}
                 </div>
               </div>
@@ -174,7 +173,7 @@
               <!-- Grade field -->
               <div class="row">
               <div class="form-group col-md-6  ">
-                {{ Form::text('grade_a', null, ['placeholder' => $product->grade_a, 'class' => 'form-control input-lg input-llg'])}}
+                {{ Form::text('grade_a', $product->grade_a, ['placeholder' => $product->grade_a, 'class' => 'form-control input-lg input-llg'])}}
                 {{ errors_for('grade_a', $errors) }}
                 <span class="help-block"> Ex: CRNO </span>
                 
@@ -183,7 +182,7 @@
                 
               <!-- Grade field -->
               <div class=" col-md-6 margin-15" >
-                {{ Form::text('grade_b', null, ['placeholder' => $product->grade_b, 'class' => 'form-control input-lg input-llg'])}}
+                {{ Form::text('grade_b', $product->garde_b, ['placeholder' => $product->grade_b, 'class' => 'form-control input-lg input-llg'])}}
                 {{ errors_for('grade_b', $errors) }}
                 <span class="help-block">Ex: 530 </span>
               </div>
@@ -209,7 +208,7 @@
               <div class="row"> 
                 <div class= "sizeA box">
                   <div class="form-group col-md-4 ">
-                    {{ Form::text('size_a', null, [ 'class' => 'place_a form-control input-lg'])}}
+                    {{ Form::text('size_a', $product->size_a, [ 'class' => 'place_a form-control input-lg'])}}
                     {{ errors_for('size_a', $errors) }}
                     <span class="help-block">In Millimeter(mm)</span>
                   </div>
@@ -217,7 +216,7 @@
                 <div class="sizeB box ">
                 <!-- breadth -->
                   <div class=" col-md-4 margin-15">
-                    {{ Form::text('size_b', null, ['class' => ' place_b form-control input-lg'])}}
+                    {{ Form::text('size_b', $product->size_b, ['class' => ' place_b form-control input-lg'])}}
                     {{ errors_for('size_b', $errors) }}
                     <span class="help-block">In Millimeter(mm)</span>
                   </div>
@@ -225,7 +224,7 @@
                 <div class="sizeC box ">
                 <!-- breadth -->
                   <div class=" col-md-4 ">
-                    {{ Form::text('size_c', null, ['class' => ' place_c form-control input-lg'])}}
+                    {{ Form::text('size_c', $product->size_c, ['class' => ' place_c form-control input-lg'])}}
                     {{ errors_for('size_c', $errors) }}
                     <span class="help-block">In Millimeter(mm)</span>
                   </div>
@@ -241,7 +240,7 @@
               <!-- Thickness -->
               <div class="row">
                 <div class="form-group col-md-12" >
-                {{ Form::text('thickness', null, ['placeholder' => 'Thickness', 'class' => 'form-control input-lg input-llg' ])}}
+                {{ Form::text('thickness', $product->thickness, ['placeholder' => 'Thickness', 'class' => 'form-control input-lg input-llg' ])}}
                 {{ errors_for('thickness', $errors) }}
                 <span class="help-block">In Millimeter(mm) </span>
 
@@ -253,28 +252,21 @@
               <!-- Volume -->
               <div class="row">
                 <div class="form-group col-md-4">
-                {{ Form::text('volume', null, ['placeholder' => $product->volume, 'class' => 'form-control input-lg', 'required' => 'required'])}}
+                {{ Form::text('volume', $product->volume, ['placeholder' => $product->volume, 'class' => 'form-control input-lg', 'required' => 'required'])}}
                 {{ errors_for('volume', $errors) }}
                 <span class="help-block">Ex: XX Number Per Day OR XX Tons Per Day </span>
               </div>
               <div class=" col-md-4 margin-15">
-                {{ Form::select('bynumber', array(''=>$product->number ,'number' => 'Number','weight' => 'Weight'), ['class' => 'form-control'])}}
+                {{ Form::select('bynumber', array($product->number=>'Number' ,'number' => 'Number','weight' => 'Weight'),$product->number, ['class' => 'form-control input-lg'])}}
                 {{ errors_for('bynumber', $errors) }}
               </div>
               <div class=" col-md-4 ">
-                {{ Form::select('perday', array(''=>$product->number,'per day' => 'Per Day' , 'per month' => 'Per Month'), ['class' => 'form-control'])}}
+                {{ Form::select('perday', array($product->number =>'per Day','per day' => 'Per Day' , 'per month' => 'Per Month'),$product->number, ['class' => 'form-control input-lg'])}}
                 {{ errors_for('perday', $errors) }}
               </div>
 
               </div>
-              
-              <!-- image -->
-              <div class="row">
-                <div class="form-group col-md-12 input-llg">
-                  {{Form::file('images',['class' => 'form-control btn  input-llg'])}}
-                  {{ errors_for('images', $errors) }}
-                </div>
-              </div>
+             
               
               <div class="row">
               <div class="form-group  col-md-12 ">
@@ -364,8 +356,16 @@
                
 
                {{Form::open(array('url'=> 'uploads','files'=>'true'))}}
-               {{Form::file('images')}}
-               {{Form::submit('upload')}}
+               <div class="form-group col-md-10 ">
+                <span class="help-block">PROFILE IMAGE </span>
+                  {{Form::file('images',['class' => 'form-control btn  input-llg', 'required'=> 'required'])}}
+                  {{ errors_for('images', $errors) }}
+
+                
+              </div>
+              <div class="form-group  col-md-10 ">
+                {{ Form::submit('update profile image', ['class' => 'btn btn-md btn-primary btn-block file-Upload']) }}
+              </div>
                {{Form::close()}}
                
                
@@ -375,7 +375,6 @@
           
 
         </div><!--/col-9-->
-    </div><!--/row-->
-                                                      
+                                 
 
 @stop

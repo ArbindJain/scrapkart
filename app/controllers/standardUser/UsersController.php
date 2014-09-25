@@ -52,11 +52,12 @@ class UsersController extends \BaseController {
 		//$products =  DB::table('products')->where('user_id',$ued)->get();
 		$products = Product::where('user_id',$ued)->paginate(10);
 		//$picture = DB::table('pictures')->where('user_id',$ued)->find(1);
-		//$pictures = Picture::where('user_id',$ued)->find(1);
-
+		$image = Picture::where('user_id',$ued)->orderBy('id','desc')->get()->take(1);
+		// $images = $user->pictures->find(1);
 
 		return View::make('protected.standardUser.edit')->withUser($user)
-		->with('products',$products);
+		->with('products',$products)
+		->with('image',$image);
 	}
 
 	/**

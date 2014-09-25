@@ -148,10 +148,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="{{ set_active('/') }}"><a href="/">Home</a></li>
                     <li class="{{ set_active('about') }}"><a href="/about">About</a></li>
+                     <li class="{{ set_active('userProtected') }}"><a href="/list">Search</a></li>
                     <li class="{{ set_active('contact') }}"><a href="/contact">Contact</a></li>
-                    <li class="{{ set_active('userProtected') }}"><a href="/product">List product</a></li>
+                   <li class="{{ set_active('userProtected') }}"><a href="/product">List product</a></li>
                     <li class="{{ set_active('userProtected') }}"><a href="/list">Display listing</a></li>
-                    <li class="{{ set_active('userProtected') }}"><a href="/list">Search</a></li>
+                   
                 </ul>
             </div>
         </div>
@@ -166,7 +167,7 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-lg-2">
+        <div class="col-lg-4 col-lg-offset-1">
           <p>LINKS</p>
           <p>
           <small><a href="#">FAQ</a></small><br>
@@ -176,18 +177,9 @@
 
           </p>
         </div>
-        <div class="col-lg-2">
-          <p>LINKS</p>
-          <p>
-          <small><a href="#">FAQ</a></small><br>
-          <small><a href="#">About</a></small><br>
-          <small><a href="#">Contact</a></small><br>
-          <small><a href="#">Terms & Condition</a></small>
+        
 
-          </p>
-        </div>
-
-        <div class="col-lg-4">
+        <div class="col-lg-3 ">
           <p>MAIN OFFICE</p>
           <p><small>
             +00 3893-4904<br>

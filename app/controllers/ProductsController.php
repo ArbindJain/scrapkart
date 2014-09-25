@@ -88,12 +88,7 @@ class ProductsController extends \BaseController {
 			$bynumber = Input::get('bynumber');
 			$perday = Input::get('perday');
 			$defaultmetal = Product::where('p_id',$p_id)->first();
-			if($metal == "" or "null"){
-				$metal = $defaultmetal->metal;
-				}
-				elseif($grade_a == "" or "null"){
-					$grade_a =$defaultmetal->grade_a;
-				}
+			
 			
 		DB::table('products')
             ->where('p_id', $p_id)
@@ -112,6 +107,7 @@ class ProductsController extends \BaseController {
             	'perday' => $perday,
 
             	));
+            return Redirect::to('/list');
 	}
 
 

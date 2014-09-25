@@ -7,10 +7,10 @@
 
 	<div class="container">
 	    <div class="row">
-			<div class="col-md-6 col-md-offset-3">
-	    		<div class="panel panel-default">
-				  	<div class="panel-heading">
-				    	<h1 class="panel-title">Login</h1>
+			<div class="col-md-7 col-md-offset-3">
+	    		<div class="panel panel-default" style="margin-top:40px; margin-bottom:40px;">
+				  	<div class="panel-heading" >
+				    	<h2 class="text-center">SIGN IN TO SCRAPKART</h2>
 				 	</div>
 				  	<div class="panel-body">
 				    	{{ Form::open(['route' => 'sessions.store']) }}
@@ -46,17 +46,13 @@
 							</div>
 				    	</fieldset>
 				      	{{ Form::close() }}
-				    </div>
-				</div>
-				<div style="text-align:center">
+				      	<div style="text-align:center">
 					<p><a href="/forgot_password">Forgot Password?</a></p>
+					</div>
+				    </div>
 
-				<!--	<p><strong>Standard User:</strong> user@user.com<br>
-					<strong>Standard User Password:</strong> sentryuser</p>
-
-					<p><strong>Admin User:</strong> admin@admin.com<br>
-					<strong>Admin Password:</strong> sentryadmin</p>-->
 				</div>
+				
 
 
 			</div>

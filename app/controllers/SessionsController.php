@@ -49,9 +49,12 @@ class SessionsController extends \BaseController {
 		$user = Sentry::getUser();
 	    $admin = Sentry::findGroupByName('Admins');
 	    $users = Sentry::findGroupByName('Users');
+	    $subscribers = Sentry::findGroupByName('Subscribers');
 
 	    if ($user->inGroup($admin)) return Redirect::intended('admin');
 	    elseif ($user->inGroup($users)) return Redirect::intended('/');
+
+	    elseif ($user->inGroup($subscribers)) return Redirect::intended('/');
 
 
 	}
